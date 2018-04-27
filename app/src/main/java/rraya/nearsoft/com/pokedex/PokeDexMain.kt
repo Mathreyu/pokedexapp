@@ -35,31 +35,6 @@ class PokeDexMain : AppCompatActivity() {
         setContentView(R.layout.activity_poke_dex_main)
         pokemonRV.adapter = pokemonListAdapter
         val layoutManager = GridLayoutManager(this, 3)
-        pokemonRV.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            private var firstVisibleItem = 0
-            private var visibleItemCount = 0
-            private var totalItemCount = 0
-            private var pastVisibleItems = 0
-
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                if (dy > 0) {
-                    visibleItemCount = recyclerView.childCount
-                    totalItemCount = layoutManager.itemCount
-                    firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
-                    pastVisibleItems = layoutManager.findFirstVisibleItemPosition()
-
-                    if (loading) {
-                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
-                            loading = false
-                            offset += 20
-                            obtainPokemon(offset)
-                        }
-                    }
-                }
-            }
-        })
 
         pokemonRV.layoutManager = layoutManager
 
