@@ -7,7 +7,7 @@ import rraya.nearsoft.com.pokedex.models.PokemonResponse
 
 interface PokeAPI {
 
-    @GET("pokemon")
+    @GET("poke")
     fun getPokemnonList(@Query("limit") limit: Int, @Query("offset") offset: Int ): Observable<PokemonResponse>
 
 }

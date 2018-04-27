@@ -19,7 +19,7 @@ class PokeDexMain : AppCompatActivity() {
         Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://pokeapi.co/api/v2/")
+                .baseUrl("http://amonroy.ngrok.io/")
                 .build()
     }
 
